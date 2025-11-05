@@ -9,11 +9,26 @@
 
         public Order(List<MenuItem> orderItems, int tableNumber)
         {
-            // Automatiskt skapande av id
             _orderId = orderIdCounter;
             orderIdCounter++;
             _orderItems = orderItems;
             _tableNumber = tableNumber;
+        }
+
+        //Method to print order
+        public void PrintOrder()
+        {
+            Console.WriteLine($"Beställning #{_orderId} - Bord {_tableNumber}");
+            Console.WriteLine("Innehåll:");
+
+            foreach(var item in _orderItems)
+            {
+                Console.WriteLine($" - {item}");
+            }
+        }
+        public override string ToString()
+        {
+            return $"Order #{_orderId} (Bord {_tableNumber}) - {_orderItems.Count} artiklar";
         }
     }
 }
