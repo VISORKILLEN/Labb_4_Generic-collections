@@ -35,6 +35,7 @@
             Console.WriteLine($"Ny beställning gjord: {order}");
         }
 
+        //A method to handel orders if there are any to handle, and removes the order on top
         public void HandleOrder()
         {
             if(_orders.Count > 0)
@@ -46,6 +47,22 @@
             else
             {
                 Console.WriteLine("Finns inga beställningar att hantera.");
+            }
+        }
+        
+        //A method that show all the orders that are in queue. 
+        //And a message if there aren't any.
+        public void ShowOrders()
+        {
+            Console.WriteLine("-- Nuvarande beställningar -- ");
+            if(_orders.Count == 0)
+            {
+                Console.WriteLine("Finns inga beställnignar i kö.");
+            }
+
+            foreach(var order in _orders)
+            {
+                order.PrintOrder();
             }
         }
     }
