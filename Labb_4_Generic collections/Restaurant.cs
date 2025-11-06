@@ -34,5 +34,19 @@
             _orders.Enqueue(order);
             Console.WriteLine($"Ny beställning gjord: {order}");
         }
+
+        public void HandleOrder()
+        {
+            if(_orders.Count > 0)
+            {
+                var nextOrder = _orders.Dequeue();
+                Console.WriteLine("Beställning klar:");
+                nextOrder.PrintOrder();
+            }
+            else
+            {
+                Console.WriteLine("Finns inga beställningar att hantera.");
+            }
+        }
     }
 }
