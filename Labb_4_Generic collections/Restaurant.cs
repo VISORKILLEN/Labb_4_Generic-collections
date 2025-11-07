@@ -65,5 +65,27 @@
                 order.PrintOrder();
             }
         }
+
+        //Method that shows the next order in queue,
+        //messages if there aren't any in queue.
+        public void ShowNextOrder()
+        {
+            if (_orders.Count > 0)
+            {
+                Console.WriteLine("-- Nästa beställning --");
+                _orders.Peek().PrintOrder();
+            }
+            else
+            {
+                Console.WriteLine("Ingen nästa beställning " +
+                    "(finns ingen beställning i kön");
+            }
+        }
+
+        //A method that shows how many orders there are
+        public void ShowOrderCount()
+        {
+            Console.WriteLine($"Det finns {_orders.Count} beställningar i kön.");
+        }
     }
 }

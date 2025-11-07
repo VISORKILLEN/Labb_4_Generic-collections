@@ -13,6 +13,7 @@
             Price = price;
         }
 
+        //metod for the name and price of the menu item
         public override string ToString()
         {
             return $"{Name} - {Price:C}";

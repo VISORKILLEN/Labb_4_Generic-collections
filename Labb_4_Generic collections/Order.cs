@@ -15,7 +15,7 @@
             _tableNumber = tableNumber;
         }
 
-        //Method to print order
+        //Method that print orders
         public void PrintOrder()
         {
             Console.WriteLine($"Beställning #{_orderId} - Bord {_tableNumber}");
@@ -26,6 +26,9 @@
                 Console.WriteLine($" - {item}");
             }
         }
+
+        //Mehtod that tells the order and what tablet it is,
+        //Also what menu items are connected to it
         public override string ToString()
         {
             return $"Order #{_orderId} (Bord {_tableNumber}) - {_orderItems.Count} artiklar";
