@@ -15,19 +15,19 @@
             _tableNumber = tableNumber;
         }
 
-        //Method that print orders
+        //Method that print outs orders that are left
         public void PrintOrder()
         {
             Console.WriteLine($"Beställning #{_orderId} - Bord {_tableNumber}");
             Console.WriteLine("Innehåll:");
-
+            
             foreach(var item in _orderItems)
             {
                 Console.WriteLine($" - {item}");
             }
         }
 
-        //Mehtod that tells the order and what tablet it is,
+        //Mehtod that tells the order and what table it is,
         //Also what menu items are connected to it
         public override string ToString()
         {
