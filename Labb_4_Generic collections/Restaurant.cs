@@ -73,6 +73,7 @@
             Console.WriteLine();
         }
         //messages if there aren't any in queue.
+        //Or print the next order in queue
         public void ShowNextOrder()
         {
             if (orders.Count > 0)
