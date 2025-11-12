@@ -2,19 +2,19 @@
 {
     internal class Restaurant
     {
-        private List<MenuItem> _menu;
-        private Queue<Order> _orders;
+        private List<MenuItem> menu;
+        private Queue<Order> orders;
 
         public Restaurant()
         {
-            _menu = new List<MenuItem>();
-            _orders = new Queue<Order>();
+            menu = new List<MenuItem>();
+            orders = new Queue<Order>();
         }
-
+       
         //Method to add new meal to the menu
         public void AddToMenu(MenuItem menuItem)
         {
-            _menu.Add(menuItem);
+            menu.Add(menuItem);
             Console.WriteLine($"Ny rätt tillagd: {menuItem}");
             Console.WriteLine();
         }
@@ -23,17 +23,17 @@
         public void ShowMenu()
         {
             Console.WriteLine("-- Meny --");
-            foreach (var item in _menu)
+            foreach (var item in menu)
             {
                 Console.WriteLine($"{item.Id}. {item}");
             }
             Console.WriteLine();
         }
 
-        //Method to create new order
+        //Method that creates new order
         public void CreateOrder(Order order)
         {
-            _orders.Enqueue(order);
+            orders.Enqueue(order);
             Console.WriteLine($"Ny beställning gjord: {order}");
             Console.WriteLine();
         }
@@ -43,13 +43,13 @@
         public void ShowOrders()
         {
             Console.WriteLine("-- Nuvarande beställningar --");
-            if(_orders.Count == 0)
+            if(orders.Count == 0)
             {
                 Console.WriteLine("Finns inga beställnignar i kö.");
                 Console.WriteLine();
             }
 
-            foreach(var order in _orders)
+            foreach(var order in orders)
             {
                 order.PrintOrder();
                 Console.WriteLine();
@@ -61,11 +61,10 @@
         //A method to handel orders if there are any to handle, and removes the order on top
         public void HandleOrder()
         {
-            if(_orders.Count > 0)
+            if(orders.Count > 0)
             {
-                var nextOrder = _orders.Dequeue();
-                Console.WriteLine("Beställning klar"); 
-                nextOrder.PrintOrder();
+                var nextOrder = orders.Dequeue();
+                Console.WriteLine($"Beställning #{nextOrder.GetOrderID()} är klar!"); 
             }
             else
             {
@@ -76,10 +75,10 @@
         //messages if there aren't any in queue.
         public void ShowNextOrder()
         {
-            if (_orders.Count > 0)
+            if (orders.Count > 0)
             {
                 Console.WriteLine("-- Nästa beställning --");
-                _orders.Peek().PrintOrder();
+                orders.Peek().PrintOrder();
             }
             else
             {
@@ -92,7 +91,7 @@
         //A method that shows how many orders there are
         public void ShowOrderCount()
         {
-            Console.WriteLine($"Det finns {_orders.Count} beställningar i kön.");
+            Console.WriteLine($"Det finns {orders.Count} beställningar i kön.");
         }
     }
 }
